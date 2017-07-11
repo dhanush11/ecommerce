@@ -3,13 +3,20 @@
 <head>
   <title>Ecommerce</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 <% if user_signed_in? %>
-		Welcome <%= current_user.email %> | 
+		Welcome <%= current_user.email %> |
+
+		<% if current_user.is_admin %>
+		<%= link_to "DASHBOARD", dashboard_index_path %>
+		<% end %>|
+
+
 
 		<%= link_to "Your Cart (#{current_user.cart_line_items.size})", cart_line_items_path %> |  <%= link_to "Account Setting", edit_user_registration_path %> | <%= link_to "Logout", destroy_user_session_path, method: :delete %>
 <% else %>

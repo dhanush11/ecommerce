@@ -1,0 +1,14 @@
+<h1> Listing SubCategories <%=@sub_categories.length %> </h1>
+<% if @sub_categories.empty? %>
+	<h3>Errors</h3>
+	<p>no sub categories found </p>
+	<% end -%>
+<ol>
+	<% @sub_categories.each do |sub_category| %>
+		<li><%= link_to sub_category.name ,sub_category_path(sub_category.id) %> </li>
+	<% end -%>
+</ol>	
+<% if user_signed_in? && current_user.is_admin %>
+
+	<%= link_to "Add sub category " , new_sub_category_path %>
+<% end -%>

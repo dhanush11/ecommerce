@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
+  get 'dashboard/index'
+  get 'dashboard/orders_report'
+
   devise_for :users
   resources :reviews
   resources :cart_line_items
   resources :categories 
   resources :products
+  resources :sub_categories
+  resources :orders 
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

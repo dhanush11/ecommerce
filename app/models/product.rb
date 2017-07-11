@@ -4,6 +4,7 @@ class Product < ActiveRecord::Base
 	has_many :cart_line_items
 	belongs_to :category
 	belongs_to :sub_category
+	has_many :order_products
 
 	# inbuilt validations
 	validates_presence_of :name, :price, :category_id, :description, :stock, :sub_category_id

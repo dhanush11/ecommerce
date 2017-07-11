@@ -1,7 +1,11 @@
 class CartLineItemsController < ApplicationController
 
+	before_action :authenticate_user!
+
 	def index
 		@cart_line_items = current_user.cart_line_items
+		@order = Order.new 
+
 	end
 
 	def create

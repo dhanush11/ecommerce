@@ -1,0 +1,20 @@
+<table border="1">
+<thead>
+	<tr>
+		<th> # </th>
+		<th> Name </th>
+		<th> Price (INR) </th>
+		<th> Category </th>
+	</tr>
+</thead>
+<tbody>
+	<% @products.each_with_index do |product, index|%>
+	<tr>
+		<td><%= index+1 %></td>
+		<td><%= product.name %></td>
+		<td><%= product.price %></td>
+		<td><%= product.category.name %></td>
+	</tr>
+	<% end %>
+ </tbody>
+</table>
